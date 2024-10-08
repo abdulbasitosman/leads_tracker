@@ -12,6 +12,7 @@ if (leadsFromLocalStorage) {
   render(myLeads);
 }
 
+// get current tab
 tabBtn.addEventListener("click", () => {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     myLeads.push(tabs[0].url);
@@ -20,6 +21,7 @@ tabBtn.addEventListener("click", () => {
   });
 });
 
+// rendering leads
 function render(leads) {
   let listItems = "";
 
@@ -34,6 +36,7 @@ function render(leads) {
   ulEl.innerHTML = listItems;
 }
 
+// delet all leads
 deleteBtn.addEventListener("dblclick", () => {
   localStorage.clear();
   myLeads = [];
